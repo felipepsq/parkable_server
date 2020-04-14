@@ -58,13 +58,13 @@ const setDefaultMarkers = () => {
 }
 
 const setCron = (markerID, userDate) => {
-    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA")
+    userDate.setMinutes(userDate.getMinutes() + 5)
 
     var rule = new schedule.RecurrenceRule();
     rule.date = userDate.getDate()
     rule.hour = userDate.getHours()
     rule.minute = userDate.getMinutes()
-    rule.second = userDate.getSeconds() + 2
+    // rule.second = userDate.getSeconds() + 2
 
     schedule.scheduleJob(rule, function () {
         firebase
@@ -75,12 +75,19 @@ const setCron = (markerID, userDate) => {
                 var date = new Date(data.properties.dateTime)
 
                 var minus5 = new Date(data.properties.dateTime)
-                minus5.setMinutes(minus5.getMinutes() - 5)
+                minus5.setMinutes(minus5.getMinutes() - 2)
 
                 var plus5 = new Date(data.properties.dateTime)
-                plus5.setMinutes(plus5.getMinutes() + 5)
+                plus5.setMinutes(plus5.getMinutes() + 2)
 
                 console.log(minus5.getTime() > date.getTime() < plus5.getTime())
+
+                if (minus5.getTime() > date.getTime() < plus5.getTime()) {
+                    firebase
+                        .database()
+                        .ref(`/markers/${markerID}/properties/`)
+                        .set({ inUse: false, dateTime: null, userUsing: null })
+                }
             })
     });
 }
