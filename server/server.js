@@ -58,6 +58,7 @@ const setDefaultMarkers = () => {
 }
 
 const setCron = (markerID, userDate) => {
+    console.log("AAAAAAAAAAAAAAAAAAAAAAAAAA")
 
     var rule = new schedule.RecurrenceRule();
     rule.date = userDate.getDate()
