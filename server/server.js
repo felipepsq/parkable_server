@@ -73,13 +73,13 @@ const setCron = (markerID, userDate) => {
                 let data = snapshot.val()
                 var date = new Date(data.properties.dateTime)
 
-                var minus5 = new Date(data.properties.dateTime)
-                minus5.setMinutes(minus5.getMinutes() - 2)
+                var minus2 = new Date(data.properties.dateTime)
+                minus2.setMinutes(minus2.getMinutes() - 2)
 
-                var plus5 = new Date(data.properties.dateTime)
-                plus5.setMinutes(plus5.getMinutes() + 2)
+                var plus2 = new Date(data.properties.dateTime)
+                plus2.setMinutes(plus2.getMinutes() + 2)
 
-                if (minus5.getTime() > date.getTime() < plus5.getTime()) {
+                if (minus2.getTime() > date.getTime() < plus2.getTime()) {
                     firebase
                         .database()
                         .ref(`/markers/${markerID}/properties/`)
