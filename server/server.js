@@ -71,20 +71,23 @@ const setCron = (markerID, userDate) => {
             .ref(`/markers/${markerID}`)
             .once('value', snapshot => {
                 let data = snapshot.val()
-                var date = new Date(data.properties.dateTime)
+                if (data.properties.dateTime) {
+                    var date = new Date(data.properties.dateTime)
 
-                var minus2 = new Date(data.properties.dateTime)
-                minus2.setMinutes(minus2.getMinutes() - 2)
+                    var minus2 = new Date(data.properties.dateTime)
+                    minus2.setMinutes(minus2.getMinutes() - 2)
 
-                var plus2 = new Date(data.properties.dateTime)
-                plus2.setMinutes(plus2.getMinutes() + 2)
+                    var plus2 = new Date(data.properties.dateTime)
+                    plus2.setMinutes(plus2.getMinutes() + 2)
 
-                if (minus2.getTime() > date.getTime() < plus2.getTime()) {
-                    firebase
-                        .database()
-                        .ref(`/markers/${markerID}/properties/`)
-                        .set({ inUse: false, dateTime: null, userUsing: null })
+                    if (minus2.getTime() > date.getTime() < plus2.getTime()) {
+                        firebase
+                            .database()
+                            .ref(`/markers/${markerID}/properties/`)
+                            .set({ inUse: false, dateTime: null, userUsing: null })
+                    }
                 }
+                return
             })
     });
 }
