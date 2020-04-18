@@ -1,5 +1,6 @@
 const express = require('express')
 const bodyParser = require('body-parser')
+import * as firebase from 'firebase';
 const cors = require('cors')
 var schedule = require('node-schedule')
 const wakeDyno = require("woke-dyno")
@@ -15,7 +16,6 @@ const firebaseConfig = {
     measurementId: "G-PBC777DPMQ"
 };
 
-var firebase = require('firebase');
 firebase.initializeApp(firebaseConfig);
 
 const app = express()

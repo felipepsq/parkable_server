@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server/server.js"
+    "start": "babel-node server/server.js"
   },
   "keywords": [],
   "author": "",
@@ -17,5 +17,12 @@
     "firebase": "^7.14.0",
     "node-schedule": "^1.3.2",
     "woke-dyno": "0.0.4"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.8.4",
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5",
+    "babel-cli": "^6.26.0"
   }
 }
