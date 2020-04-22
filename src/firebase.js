@@ -66,7 +66,6 @@ export const setCron = (markerID, userDate) => {
                             .ref(`/markers/${markerID}/properties/`)
                             .set({ inUse: false, dateTime: null, userUsing: null })
                     }
-                    console.log("asdasdasdasdasdasd")
                 }
                 return
             })
