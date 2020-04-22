@@ -23,7 +23,7 @@ app.get('/', (req, res) => {
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`)
-    wakeUpDyno('https://git.heroku.com/parkable-server.git', 20);
+    wakeUpDyno('https://parkable-server.herokuapp.com/', 20);
     // setDefaultMarkers()
 })
 
