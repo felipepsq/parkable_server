@@ -18,12 +18,13 @@ app.post('/crontab', (req, res) => {
 });
 
 app.get('/', (req, res) => {
+    console.log("GET -----------------------")
     res.send('ok')
 });
 
 app.listen(port, () => {
     console.log(`Listening on port ${port}!`)
-    wakeUpDyno('https://parkable-server.herokuapp.com/', 20);
+    wakeUpDyno();
     // setDefaultMarkers()
 })
 
