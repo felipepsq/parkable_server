@@ -69,5 +69,5 @@ export const setCron = (markerID, userDate) => {
                 }
                 return
             })
-    });
+    })
 }
