@@ -2,15 +2,15 @@ import * as firebase from 'firebase'
 var schedule = require('node-schedule')
 
 const firebaseConfig = {
-    apiKey: "AIzaSyBGFolwQKLm8P9tycvYXZ5wJXx6k6VJKHk",
-    authDomain: "parkable-41967.firebaseapp.com",
-    databaseURL: "https://parkable-41967.firebaseio.com",
-    projectId: "parkable-41967",
-    storageBucket: "parkable-41967.appspot.com",
-    messagingSenderId: "438106255214",
-    appId: "1:438106255214:web:dfb35af6d7557650e35b7f",
-    measurementId: "G-PBC777DPMQ"
-};
+    apiKey: process.env.APIKEY,
+    authDomain: process.env.AUTHDOMAIN,
+    databaseURL: process.env.DATABASEURL,
+    projectId: process.env.PROJECTID,
+    storageBucket: process.env.STORRAGEBUCKET,
+    messagingSenderId: process.env.MESSAGINGSENDERID,
+    appId: process.env.APPID,
+    measurementId: process.env.MEASUREMENTID
+}
 
 firebase.initializeApp(firebaseConfig);
 
