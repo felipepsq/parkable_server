@@ -16,4 +16,6 @@ Para poder desenvolver, testar ou modificar este projeto, você precisa seguir a
 
 ## Avisos importantes
 
+A configuração das variáveis de ambiente é obrigatória em ambiente de desenvolvimento, que englobam as chaves de configuração do Firebase (pertencentes ao desenvolvedor).
+
 Este projeto foi desenvolvido para rodar juntamente com o aplicativo ParkAble (https://github.com/felipepsq/parkable), desta forma, para ter acesso a todas as funcionalidades, é necessário ter o projeto ParkAble em atividade.
